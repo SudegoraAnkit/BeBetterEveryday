@@ -1,3 +1,75 @@
+
+**📅 Day 3 of 72 — 2026-07-16 — Week 1 of 12**
+
+**🎯 Theme:** Complexity + Arrays + Strings + Spring Boot Setup
+
+---
+
+### ⏰ Block 1: Yesterday's Revision (10 min)
+*Self-check your memory on the corrected concepts from your recent roast:*
+1. **CPU Cache vs. Heap:** What physical mechanism makes sequential reads of primitive arrays `int[]` much faster than reference arrays `Integer[]`?
+2. **ArrayList Resize Trigger:** Does an `ArrayList` grow when it is 75% full, 90% full, or 100% full? What bitwise shift operation does it use?
+3. **Varargs Binding:** Why does `Arrays.asList(new int[]{1, 2, 3})` return a list of size 1 instead of 3?
+
+---
+
+### 📖 Block 2: Concept Deep-Dive (50 min)
+**Topic:** Array Algorithms: Two Sum, Kadane's, and Array Rotation
+
+**Study Objectives:**
+- **Two Sum:** Trade space for time. Transition from brute-force $O(n^2)$ search to single-pass $O(n)$ hash mapping.
+- **Kadane's Algorithm:** Solve maximum subarray sum in $O(n)$ time. Understand how to decide whether to append to the running sum or start a new subarray.
+- **Array Rotation:** Learn the three-step reverse trick to rotate an array in-place with $O(n)$ time and $O(1)$ extra space.
+
+**Recommended commands:**
+- `/shorts Kadane's Algorithm`
+- `/shorts Rotate Array`
+
+---
+
+### 🔨 Block 3: Practical Hands-On (40 min)
+**Task:** Implement the three algorithms inside `ArrayAlgorithms.java`.
+
+**In NexCommerce:** Used in analytics services to calculate maximum profit segments over dates (Kadane's) and optimize product listing matching (Two Sum).
+
+**Steps:**
+1. Open or create [ArrayAlgorithms.java](file:///d:/2026/Learning/UsingAntigravity/2.0/BeBetterEveryday/scratch/ArrayAlgorithms.java).
+2. Implement the method signatures:
+   ```java
+   package scratch;
+
+   import java.util.HashMap;
+   import java.util.Map;
+
+   public class ArrayAlgorithms {
+       // O(n) One-pass HashMap lookup
+       public static int[] twoSum(int[] nums, int target) {
+           // TODO: Implement
+           return new int[0];
+       }
+
+       // O(n) Kadane's maximum subarray sum
+       public static int maxSubArray(int[] nums) {
+           // TODO: Implement
+           return 0;
+       }
+
+       // O(n) in-place array rotation (3-reverse trick)
+       public static void rotate(int[] nums, int k) {
+           // TODO: Implement
+       }
+   }
+   ```
+3. Test your code using assertions or a main class.
+
+---
+
+### 🧊 Block 4: Cool-Down Revision (20 min)
+- Run `/trick arrays` to test for generic traps.
+- When done, share your code for verification! I will review it, help you log the completions, and update your tracker.
+
+
+
 # 📅 Day 3: Array Algorithms (Two Sum, Kadane's, & Array Rotation)
 
 ---
