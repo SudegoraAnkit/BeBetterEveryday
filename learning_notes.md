@@ -16,6 +16,7 @@ This file is your personalized handbook of concepts you missed or got partially 
 9. [Core Java: ArrayList Resizing Sizing Threshold](#9-core-java-arraylist-resizing-sizing-threshold)
 10. [DSA: Array Algorithms Tradeoffs](#10-dsa-array-algorithms-tradeoffs)
 11. [System Design: Hardware CPU Cache vs. JVM Object Cache](#11-system-design-hardware-cpu-cache-vs-jvm-object-cache)
+12. [Spring Boot: JPA & Lombok Entity Annotations](#12-spring-boot-jpa--lombok-entity-annotations)
 
 ---
 
@@ -240,6 +241,20 @@ How does Java's `ArrayList` calculate its next capacity size when it grows, and 
     - **`int[]` (Primitive Array):** Contiguous elements in memory. Loading `arr[0]` pre-fetches adjacent index values into CPU cache lines. Very low L1/L2 cache misses.
     - **`Integer[]` (Boxed Array):** Array of pointer references. The reference pointers themselves are contiguous, but the referenced objects are scattered randomly in JVM heap memory. Accessing each element requires jumping to a new address, causing constant CPU cache misses (pointer chasing).
 *   **Performance Impact:** Boxed arrays are typically up to **8x slower** than primitive arrays during sequential processing tasks due to memory access stalls.
+
+---
+
+## 12. Spring Boot: JPA & Lombok Entity Annotations
+* **Session Date:** 2026-07-16 (`/master` JPA/Lombok annotations)
+
+### Key Insights
+*   **`@Entity`:** Identifies the class as an ORM managed type. Crucial for Spring Data Repository mappings.
+*   **`@Table(name = "users")`:** Mandatory override in PostgreSQL because `user` is a reserved SQL keyword. Prevents syntax compilation crashes.
+*   **`@EntityListeners(AuditingEntityListener.class)`:** Connects Hibernate hook events to automate Spring Data auditing fields (`@CreatedDate`/`@LastModifiedDate`).
+*   **`@NoArgsConstructor`:** Mandatory for Hibernate reflection object allocation (`Class.newInstance()`).
+*   **`@Builder` Trap:** Suppression of default constructors if `@NoArgsConstructor` and `@AllArgsConstructor` are not explicitly defined together alongside it.
+*   **Avoid `@Data` on JPA Entities:** Generates dynamic `equals` and `hashCode` evaluations which trigger lazy-loading queries, resulting in performance degradation (N+1 query issues) or `LazyInitializationException`. Use explicit `@Getter` and `@Setter`.
+
 
 
 

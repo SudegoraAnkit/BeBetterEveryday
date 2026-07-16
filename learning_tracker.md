@@ -11,7 +11,7 @@
 |--------|--------------|----------------|-------------|
 | Core Java | Intermediate | 2 | 2026-07-02 |
 | DSA | Beginner | 2 | 2026-07-06 |
-| Spring Boot | Beginner | 0 | — |
+| Spring Boot | Beginner | 1 | 2026-07-16 |
 | Spring Data | Beginner | 0 | — |
 | Spring Security | Beginner | 0 | — |
 | Spring Cloud | Beginner | 0 | — |
@@ -118,6 +118,14 @@
 - **Key Concepts:** CPU cache line prefetching vs JVM IntegerCache objects, Type Erasure varargs binding (`T[]` vs `int[]` object wrapper)
 - **Gaps Identified:** Confused physical hardware CPU caches with Java Heap IntegerCache. Missed Generics Compilation rules regarding why primitive arrays cannot bind directly as varargs elements.
 - **Score:** 2/10
+
+### 2026-07-16 — `/master` — JPA & Lombok Class Annotations
+- **Domain:** Spring Boot
+- **Competency Stage:** Guided Practice
+- **Trap Type:** N/A (Theoretical Mastery deep-dive)
+- **Key Concepts:** Entity Persistence Context, default constructor requirement, `@Builder` default constructor suppression, PostgreSQL keyword collisions with `@Table`, `@Data` performance pitfalls.
+- **Gaps Identified:** None. Aligned on clean, explicit JPA entity layouts and Enum mappings.
+- **Score:** 9/10
 
 ---
 
