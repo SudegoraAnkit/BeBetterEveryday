@@ -111,6 +111,14 @@
 - **Activity:** Created `/git` and `/notes` custom skills, fixed parent customizations paths, backdated and pushed repository history (Complexity Analysis and DynamicArray assertions) to GitHub.
 - **Outcome:** Day 3 shifted to tomorrow. Tracker remains at Day 3.
 
+### 2026-07-16 — `/revise` — CPU Cache vs JVM Cache & Varargs Generics
+- **Domain:** DSA / Core Java
+- **Competency Stage:** Exposure (re-teaching required)
+- **Trap Type:** 🧠 Conceptual Confusion
+- **Key Concepts:** CPU cache line prefetching vs JVM IntegerCache objects, Type Erasure varargs binding (`T[]` vs `int[]` object wrapper)
+- **Gaps Identified:** Confused physical hardware CPU caches with Java Heap IntegerCache. Missed Generics Compilation rules regarding why primitive arrays cannot bind directly as varargs elements.
+- **Score:** 2/10
+
 ---
 
 ## 🔄 Revision Queue
@@ -122,9 +130,9 @@
 | Operator associativity & type promotion in `+` | Core Java | 2026-07-02 | High |
 | Logarithmic complexity bounds & division loops | DSA | 2026-07-05 | Medium |
 | Recursion call stack limit mechanics (`-Xss`) | DSA | 2026-07-05 | Medium |
-| Cache locality vs Pointer chasing (low-latency systems) | DSA | 2026-07-06 | High |
+| Cache locality vs Pointer chasing (low-latency systems) | DSA | 2026-07-16 | High (CRITICAL) |
 | Latency jitter under amortized operations | DSA | 2026-07-06 | Medium |
-| Generics & Primitive Varargs (`Arrays.asList` traps) | Core Java | 2026-07-06 | High |
+| Generics & Primitive Varargs (`Arrays.asList` traps) | Core Java | 2026-07-16 | High (CRITICAL) |
 
 ---
 

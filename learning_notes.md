@@ -15,6 +15,7 @@ This file is your personalized handbook of concepts you missed or got partially 
 8. [Core Java: Primitive Varargs & Generics](#8-core-java-primitive-varargs--generics)
 9. [Core Java: ArrayList Resizing Sizing Threshold](#9-core-java-arraylist-resizing-sizing-threshold)
 10. [DSA: Array Algorithms Tradeoffs](#10-dsa-array-algorithms-tradeoffs)
+11. [System Design: Hardware CPU Cache vs. JVM Object Cache](#11-system-design-hardware-cpu-cache-vs-jvm-object-cache)
 
 ---
 
@@ -225,5 +226,20 @@ How does Java's `ArrayList` calculate its next capacity size when it grows, and 
     - The HashMap overhead (object allocations, hashing computation, bucket collisions) dominates for small inputs.
     - A brute force $O(n^2)$ scan uses contiguous arrays, loading directly into CPU cache lines with zero heap allocations, executing faster than $O(n)$ HashMap lookups at tiny scales.
 *   **Kadane's Negative Bound:** If the array contains only negative numbers (e.g., `[-3, -1, -5]`), Kadane's maximum subarray sum is the maximum single element (`-1`), not `0`. You must initialize `currentMax` and `globalMax` to the first element, not `0`.
+
+---
+
+## 11. System Design: Hardware CPU Cache vs. JVM Object Cache
+* **Session Date:** 2026-07-16 (`/master` CPU vs JVM Cache)
+
+### Key Insights
+*   **The Difference:**
+    - **CPU Cache (L1/L2/L3):** Physical high-speed memory (SRAM) residing on the CPU chip. It loads memory in chunks of 64 bytes (cache lines) from RAM.
+    - **JVM Object Cache (e.g., `IntegerCache`):** Software array (`Integer[]`) inside physical RAM (JVM Heap) to reuse object references for values $-128$ to $127$.
+*   **Sequential vs. Pointer Chasing Layout:**
+    - **`int[]` (Primitive Array):** Contiguous elements in memory. Loading `arr[0]` pre-fetches adjacent index values into CPU cache lines. Very low L1/L2 cache misses.
+    - **`Integer[]` (Boxed Array):** Array of pointer references. The reference pointers themselves are contiguous, but the referenced objects are scattered randomly in JVM heap memory. Accessing each element requires jumping to a new address, causing constant CPU cache misses (pointer chasing).
+*   **Performance Impact:** Boxed arrays are typically up to **8x slower** than primitive arrays during sequential processing tasks due to memory access stalls.
+
 
 
